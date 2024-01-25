@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace C_
 {
-    internal class DirectSelectionSort
+    internal class DirectSelectionSort : MethodSort
     {
         /// <summary>
-        /// 直接選択法によるソート
+        /// 直接選択法
         /// </summary>
-        public static void Sort()
+        public override void Sort()
         {
             int[] data = { 20, 30, 50, 10, 40 };
 

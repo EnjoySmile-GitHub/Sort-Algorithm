@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 
 namespace C_
 {
-    internal class BubbleSort : MethodSort
+    /// <summary>
+    /// 基本挿入法
+    /// </summary>
+    internal class BasicInsertionSort : MethodSort
     {
-        /// <summary>
-        /// バブルソート
-        /// </summary>
         public override void Sort()
         {
-            int[] data = { 30, 20, 50, 10, 40 };
+            int[] data = { 5, 4, 8, 9, 1, 3, 2, 6, 7, 0 };
 
-            for(int i = 0; i < data.Length - 1; i++)
+            for(int i = 0; i < data.Length; i++)
             {
-                for(int j = data.Length - 1; i < j; j--)
+                for(int j = i - 1; j > -1; j--)
                 {
-                    if (data[j] < data[j - 1])
+                    if (data[j] > data[j + 1])
                     {
                         int temp = data[j];
-                        data[j] = data[j - 1];
-                        data[j - 1] = temp;
+                        data[j] = data[j + 1];
+                        data[j + 1] = temp;
+                    }
+                    else
+                    {
+                        break;
                     }
                 }
             }
