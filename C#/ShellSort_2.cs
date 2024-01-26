@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace C_
 {
-    internal class ShellSort_1 : MethodSort
+    internal class ShellSort_2 : MethodSort
     {
         /// <summary>
-        /// シェルソート1（改良挿入法）
+        /// シェルソート2（改良挿入法）
         /// </summary>
         public override void Sort()
         {
@@ -21,32 +21,32 @@ namespace C_
                 data[i] = rnd.Next(100);
             }
 
-            int gap = data.Length / 2;
+            int gap = 1;
+            while(gap < data.Length / 3)
+            {
+                gap = 3 * gap + 1;
+            }
 
             while(gap > 0)
             {
-                // ギャップとびの部分数列のソート
-                for(int k = 0; k < gap; k++)
+                for(int i = gap; i < data.Length; i++)
                 {
-                    for(int i = k + gap; i < data.Length; i += gap)
+                    for(int j = i - gap; j > -1; j -= gap)
                     {
-                        for(int j = i - gap; j > k - 1; j -= gap)
+                        if (data[j] > data[j + gap])
                         {
-                            if (data[j] > data[j + gap])
-                            {
-                                int temp = data[j];
-                                data[j] = data[j + gap];
-                                data[j + gap] = temp;
-                            }
-                            else
-                            {
-                                break;
-                            }
+                            int temp = data[j];
+                            data[j] = data[j + gap];
+                            data[j + gap] = temp;
+                        }
+                        else
+                        {
+                            break;
                         }
                     }
                 }
 
-                gap /= 2;
+                gap /= 3;
             }
 
             for(int i = 0; i < data.Length; i++)
