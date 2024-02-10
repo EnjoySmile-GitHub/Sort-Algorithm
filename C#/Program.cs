@@ -3,7 +3,7 @@
 
 using C_;
 
-const int SORT_COUNT = 7;
+const int SORT_COUNT = 9;
 
 MethodSort[] sort = new MethodSort[SORT_COUNT];
 
@@ -21,6 +21,10 @@ sort[4] = new BasicInsertionSort();
 sort[5] = new ShellSort_1();
 // シェルソート2
 sort[6] = new ShellSort_2();
+// マージ（併合）
+sort[7] = new Merge1();
+// マージ（併合） 番兵を立てる
+sort[8] = new Merge2();
 
 for(int i = 0;i < sort.Length; i++)
 {
