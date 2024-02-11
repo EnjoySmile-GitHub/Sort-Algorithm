@@ -4,6 +4,8 @@ import logic.BubbleSort;
 import logic.DirectSelectionSort;
 import logic.IndexSort;
 import logic.LogicSort;
+import logic.Merge1;
+import logic.Merge2;
 import logic.ShakerSort;
 import logic.ShellSort_1;
 import logic.ShellSort_2;
@@ -11,7 +13,7 @@ import logic.ShellSort_2;
 public class Main {
 
 	public static void main(String[] args) {
-		final int SORT_COUNT = 8;
+		final int SORT_COUNT = 10;
 
 		LogicSort[] logicSortInstance = new LogicSort[SORT_COUNT];
 		// 直接選択法
@@ -30,6 +32,10 @@ public class Main {
 		logicSortInstance[6] = new ShellSort_1();
 		// シェルソート2
 		logicSortInstance[7] = new ShellSort_2();
+		// マージ（併合）_1
+		logicSortInstance[8] = new Merge1();
+		// マージ（併合）_2
+		logicSortInstance[9] = new Merge2();
 
 		for (int i = 0; i < SORT_COUNT; i++) {
 			if (logicSortInstance[i] == null) {
